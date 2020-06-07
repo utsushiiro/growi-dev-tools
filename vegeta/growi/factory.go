@@ -3,7 +3,6 @@ package growi
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 	"math/rand"
 	"net/http"
 	"os"
@@ -62,7 +61,7 @@ func NewGrowiTargeterFactory() (TargeterFactory, error) {
 	// set up global rand seed
 	seed, err := strconv.ParseInt(os.Getenv("SEED"), 10, 64)
 	if err != nil {
-		log.Fatalf("%+v\n", err)
+		return nil, err
 	}
 	rand.Seed(seed)
 
