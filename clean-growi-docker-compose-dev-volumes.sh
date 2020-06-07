@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if (( $# != 1 )); then
   echo "Error: specify only one argument" 1>&2
