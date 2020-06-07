@@ -19,10 +19,10 @@ func main() {
 	}
 
 	var (
-		_rate              = flag.Int("rate", -1, "request per second")
-		_duration          = flag.Int("duration", -1, "how many seconds")
-		isRandomAccessMode = flag.Bool("random-access", false, "random access mode")
-		isRandomUpdateMode = flag.Bool("random-update", false, "random update mode")
+		_rate                  = flag.Int("rate", -1, "request per second")
+		_duration              = flag.Int("duration", -1, "how many seconds")
+		isRandomPageAccessMode = flag.Bool("random-page-access", false, "random page access mode")
+		isRandomPageUpdateMode = flag.Bool("random-page-update", false, "random page update mode")
 	)
 	flag.Parse()
 
@@ -33,8 +33,8 @@ func main() {
 	rate := vegeta.Rate{Freq: *_rate, Per: time.Second}
 	duration := time.Duration(*_duration) * time.Second
 
-	if *isRandomAccessMode == *isRandomUpdateMode {
-		fmt.Fprintf(os.Stderr, "random-accessとrandom-updateのどちらかを指定してください\n")
+	if *isRandomPageAccessMode == *isRandomPageUpdateMode {
+		fmt.Fprintf(os.Stderr, "random-page-accessとrandom-page-updateのどちらかを指定してください\n")
 		os.Exit(1)
 	}
 
@@ -45,13 +45,13 @@ func main() {
 	}
 
 	var targeter vegeta.Targeter
-	if *isRandomAccessMode {
+	if *isRandomPageAccessMode {
 		targeter, err = factory.NewRandomPageAccessTargeter()
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%+v\n", err)
 			os.Exit(1)
 		}
-	} else if *isRandomUpdateMode {
+	} else if *isRandomPageUpdateMode {
 		targeter, err = factory.NewRandomPageUpdateTargeter()
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%+v\n", err)
