@@ -67,10 +67,10 @@ func NewGrowiTargeterFactory() (TargeterFactory, error) {
 
 	return &targeterFactory{
 		host:  os.Getenv("GROWI_URL"),
-		token: os.Getenv("ADMIN_API_TOKEN"),
+		token: os.Getenv("API_TOKEN"),
 		cookie: http.Cookie{
 			Name:  "connect.sid",
-			Value: os.Getenv("ADMIN_SESSION_COOKIE"),
+			Value: os.Getenv("SESSION_COOKIE"),
 		},
 	}, nil
 }
