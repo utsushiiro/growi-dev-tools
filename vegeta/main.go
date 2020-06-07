@@ -29,7 +29,12 @@ func main() {
 	rate := vegeta.Rate{Freq: *_rate, Per: time.Second}
 	duration := time.Duration(*_duration) * time.Second
 
-	targeter, err := growi.NewRandomPageAccessTargeter()
+	factory, err := growi.NewGrowiTargeterFactory()
+	if err != nil {
+		log.Fatalf("%+v\n", err)
+	}
+
+	targeter, err := factory.NewRandomPageUpdateTargeter()
 	if err != nil {
 		log.Fatalf("%+v\n", err)
 	}
