@@ -17,5 +17,5 @@
 # vendor/
 
 ### Custom
-vegeta
+stress-test
 .env

@@ -8,7 +8,7 @@ import (
 
 	"github.com/joho/godotenv"
 	vegeta "github.com/tsenart/vegeta/lib"
-	"github.com/utsushiiro/growi-dev-tools/vegeta/growi"
+	"github.com/utsushiiro/growi-dev-tools/stress-test/growi"
 )
 
 func main() {

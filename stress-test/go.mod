@@ -1,4 +1,4 @@
-module github.com/utsushiiro/growi-dev-tools/vegeta
+module github.com/utsushiiro/growi-dev-tools/stress-test
 
 go 1.14
 

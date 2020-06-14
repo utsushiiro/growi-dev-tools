@@ -14,7 +14,7 @@ $ cp .env.example .env
 
 ### オプション
 ```
-$ ./vegeta -h
+$ ./stress-test -h
 Usage of ./vegeta:
   -duration int
     	how many seconds (default -1)
@@ -31,7 +31,7 @@ Usage of ./vegeta:
 ランダムなページアクセスを1秒間に10回, 5秒間行う
 
 ```
-$ ./vegeta --rate 10 --duration 5 --random-page-access
+$ ./stress-test --rate 10 --duration 5 --random-page-access
 ## Vegeta Metrics
 
 Requests      [total, rate, throughput]  50, 10.21, 10.15
@@ -47,7 +47,7 @@ Error Set:
 ランダムなページ更新を1秒間に2回, 5秒間行う
 
 ```
-$ ./vegeta --rate 2 --duration 5 --random-page-update
+$ ./stress-test --rate 2 --duration 5 --random-page-update
 ## Vegeta Metrics
 
 Requests      [total, rate, throughput]  10, 2.22, 2.19
